@@ -58,8 +58,6 @@ void tampil(void)
     glRotatef(yrot, 0.0f, 1.0f, 0.0f);
     glPushMatrix();
 
-
-
     glPopMatrix();
     glutSwapBuffers();
 }
