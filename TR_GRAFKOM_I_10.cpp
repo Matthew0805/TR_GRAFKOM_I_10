@@ -3006,18 +3006,10 @@ void tampil(void)
     //pintu
     glBegin(GL_QUADS);
     glColor3ub(150, 75, 0);
-    if (waktu1) {
-        glVertex3f(-2.0, 10.0, -8.0);
-        glVertex3f(-2.0, 18.0, -8.0);
-        glVertex3f(2.0, 18.0, -8.0);
-        glVertex3f(2.0, 10.0, -8.0);
-    }
-    else {
-        glVertex3f(2.0, 10.0, -8.0);
-        glVertex3f(2.0, 18.0, -8.0);
-        glVertex3f(2.0, 18.0, -12.0);
-        glVertex3f(2.0, 10.0, -12.0);
-    }
+    glVertex3f(-2.0, 10.0, -8.0);
+    glVertex3f(-2.0, 18.0, -8.0);
+    glVertex3f(2.0, 18.0, -8.0);
+    glVertex3f(2.0, 10.0, -8.0);
     glEnd();
 
     //object lantai 1
