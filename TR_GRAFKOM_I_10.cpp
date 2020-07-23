@@ -1,6 +1,7 @@
 #include <windows.h>
 #include <stdlib.h>
 #include <gl/glut.h>
+#include <math.h>
 
 void init(void);
 void tampil(void);
@@ -65,6 +66,57 @@ void init(void)
     glLineWidth(3.0f);
 }
 
+void ngon(int n, float cx, float cy, float radius, float rotAngle){
+    double angle, angleInc;
+    int k;
+
+    if(n<3) return;
+    angle=rotAngle*3.14159265/180;
+    angleInc=2*3.14159265/n;
+
+    glVertex2f(radius*cos(angle)+cy, radius*sin(angle)+cy);
+
+    for(k=0;k<n;k++){
+        angle+=angleInc;
+        glVertex2f(radius*cos(angle)+cy, radius*sin(angle)+cy);
+    }
+}
+
+void lantai (void)
+{
+    //lantai 1, 2
+    int x = 0;
+    for(int i=0; i<2; i++);{
+    glColor3f(1.0, 1.0, 1.0);
+    glBegin(GL_QUADS);
+    glVertex3f(-18.0, 0.0+x, -18.0);
+    glVertex3f(18.0, 0.0+x, -18.0);
+    glVertex3f(18.0, 0.0+x, -6.0);
+    glVertex3f(-18.0, 0.0+x, -6.0);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex3f(10.0, 0.0+x, -6.0);
+    glVertex3f(18.0, 0.0+x, -9.0);
+    glVertex3f(37.0, 0.0+x, -12.0);
+    glVertex3f(40.0, 0.0+x, 0.0);
+    glVertex3f(24.0, 0.0+x, 4.0);
+    glVertex3f(28.0, 0.0+x, 26.0);
+    glVertex3f(16.0, 0.0+x, 28.0);
+    glVertex3f(10.0, 0.0+x, -6.0);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex3f(-10.0, 0.0+x, -6.0);
+    glVertex3f(-16.0, 0.0+x, 28.0);
+    glVertex3f(-28.0, 0.0+x, 26.0);
+    glVertex3f(-24.0, 0.0+x, 4.0);
+    glVertex3f(-40.0, 0.0+x, 0.0);
+    glVertex3f(-37.0, 0.0+x, -12.0);
+    glVertex3f(-18.0, 0.0+x, -9.0);
+    glVertex3f(-10.0, 0.0+x, -6.0);
+    glEnd();
+    x+=10;
+    }
+}
 
 void tampil(void)
 {
@@ -1791,63 +1843,7 @@ void tampil(void)
     glVertex3f(-16.0, 24.0, 28.0);
     glEnd();
 
-    //bawah
-    glBegin(GL_QUADS);
-    glColor3f(1.0, 1.0, 1.0);
-    glVertex3f(-18.0, 0.0, -18.0);
-    glVertex3f(18.0, 0.0, -18.0);
-    glVertex3f(18.0, 0.0, -6.0);
-    glVertex3f(-18.0, 0.0, -6.0);
-    glEnd();
-    glBegin(GL_POLYGON);
-    glVertex3f(10.0, 0.0, -6.0);
-    glVertex3f(18.0, 0.0, -9.0);
-    glVertex3f(37.0, 0.0, -12.0);
-    glVertex3f(40.0, 0.0, 0.0);
-    glVertex3f(24.0, 0.0, 4.0);
-    glVertex3f(28.0, 0.0, 26.0);
-    glVertex3f(16.0, 0.0, 28.0);
-    glVertex3f(10.0, 0.0, -6.0);
-    glEnd();
-    glBegin(GL_POLYGON);
-    glVertex3f(-10.0, 0.0, -6.0);
-    glVertex3f(-16.0, 0.0, 28.0);
-    glVertex3f(-28.0, 0.0, 26.0);
-    glVertex3f(-24.0, 0.0, 4.0);
-    glVertex3f(-40.0, 0.0, 0.0);
-    glVertex3f(-37.0, 0.0, -12.0);
-    glVertex3f(-18.0, 0.0, -9.0);
-    glVertex3f(-10.0, 0.0, -6.0);
-    glEnd();
-
-    //tengah
-    glBegin(GL_QUADS);
-    glColor3f(1.0, 1.0, 1.0);
-    glVertex3f(-18.0, 10.0, -18.0);
-    glVertex3f(18.0, 10.0, -18.0);
-    glVertex3f(18.0, 10.0, -6.0);
-    glVertex3f(-18.0, 10.0, -6.0);
-    glEnd();
-    glBegin(GL_POLYGON);
-    glVertex3f(10.0, 10.0, -6.0);
-    glVertex3f(18.0, 10.0, -9.0);
-    glVertex3f(37.0, 10.0, -12.0);
-    glVertex3f(40.0, 10.0, 0.0);
-    glVertex3f(24.0, 10.0, 4.0);
-    glVertex3f(28.0, 10.0, 26.0);
-    glVertex3f(16.0, 10.0, 28.0);
-    glVertex3f(10.0, 10.0, -6.0);
-    glEnd();
-    glBegin(GL_POLYGON);
-    glVertex3f(-10.0, 10.0, -6.0);
-    glVertex3f(-16.0, 10.0, 28.0);
-    glVertex3f(-28.0, 10.0, 26.0);
-    glVertex3f(-24.0, 10.0, 4.0);
-    glVertex3f(-40.0, 10.0, 0.0);
-    glVertex3f(-37.0, 10.0, -12.0);
-    glVertex3f(-18.0, 10.0, -9.0);
-    glVertex3f(-10.0, 10.0, -6.0);
-    glEnd();
+    lantai();
 
     //atas
     glBegin(GL_QUADS);
@@ -2734,6 +2730,12 @@ void tampil(void)
     glVertex3f(4.0, 12.0, -10.0);
     glVertex3f(10.0, 12.0, -17.5);
     glVertex3f(10.0, 12.0, -10.0);
+    glEnd();
+
+    //karpet
+    glBegin(GL_POLYGON);
+    glColor3ub(255, 255, 0);
+        ngon(100,7,40,4,90);
     glEnd();
 
     //kasur
