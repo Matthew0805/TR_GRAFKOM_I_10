@@ -83,6 +83,7 @@ void tampil(void)
         glClearColor(0.7, 0.8, 0.9, 0.0);
     }
 
+    //alas
     glBegin(GL_QUADS);
     glColor3f(1.0, 1.0, 1.0);
     glVertex3f(-45.0, 0.0, 35.0);
@@ -116,6 +117,7 @@ void tampil(void)
     glVertex3f(-45.0, -2.0, -50.0);
     glEnd();
 
+    //jendela
     glBegin(GL_POLYGON);
     glColor3ub(57, 59, 54);
     glVertex3f(2.7, 20.0, -5.5);
