@@ -83,6 +83,39 @@ void tampil(void)
         glClearColor(0.7, 0.8, 0.9, 0.0);
     }
 
+    glBegin(GL_QUADS);
+    glColor3f(1.0, 1.0, 1.0);
+    glVertex3f(-45.0, 0.0, 35.0);
+    glVertex3f(-45.0, 0.0, -35.0);
+    glVertex3f(45.0, 0.0, -35.0);
+    glVertex3f(45.0, 0.0, 35.0);
+
+    glVertex3f(-45.0, -2.0, 35.0);
+    glVertex3f(-45.0, -2.0, -35.0);
+    glVertex3f(45.0, -2.0, -35.0);
+    glVertex3f(45.0, -2.0, 35.0);
+
+    glVertex3f(-45.0, 0.0, 35.0);
+    glVertex3f(-45.0, 0.0, -35.0);
+    glVertex3f(-45.0, -2.0, -35.0);
+    glVertex3f(-45.0, -2.0, 35.0);
+
+    glVertex3f(45.0, 0.0, 35.0);
+    glVertex3f(45.0, 0.0, -35.0);
+    glVertex3f(45.0, -2.0, -35.0);
+    glVertex3f(45.0, -2.0, 35.0);
+
+    glVertex3f(-45.0, 0.0, 35.0);
+    glVertex3f(45.0, 0.0, 35.0);
+    glVertex3f(45.0, -2.0, 35.0);
+    glVertex3f(-45.0, -2.0, 35.0);
+
+    glVertex3f(-45.0, 0.0, -35.0);
+    glVertex3f(45.0, 0.0, -35.0);
+    glVertex3f(45.0, -2.0, -35.0);
+    glVertex3f(-45.0, -2.0, -35.0);
+    glEnd();
+
     glBegin(GL_POLYGON);
     glColor3ub(57, 59, 54);
     glVertex3f(2.7, 20.0, -5.5);
@@ -3085,15 +3118,15 @@ void keyboard(unsigned char key, int x, int y)
         glTranslatef(-3.0, 0.0, 0.0);
         break;
     //atas
-    case '7':
+    case '2':
         glTranslatef(0.0, 3.0, 0.0);
         break;
     //bawah
-    case '9':
+    case '3':
         glTranslatef(0.0, -3.0, 0.0);
         break;
     //transparan
-    case '5':
+    case '1':
         if (is_depth)
         {
             is_depth = 0;
@@ -3113,7 +3146,7 @@ void ukuran(int lebar, int tinggi)
     if (tinggi == 0) tinggi = 1;
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(40.0, lebar / tinggi, 5.0, 500.0);
+    gluPerspective(45.0, lebar / tinggi, 5.0, 500.0);
     glTranslatef(0.0, -5.0, -150.0);
     glMatrixMode(GL_MODELVIEW);
 }
